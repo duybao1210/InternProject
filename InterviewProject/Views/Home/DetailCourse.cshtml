@@ -1,0 +1,32 @@
+﻿@model IEnumerable<InterviewProject.Models.MonHoc>
+
+<style>
+    hr {
+        border: 2px solid;
+        border-block-color: greenyellow;
+        border-radius: 5px;
+    }
+
+    .subject:nth-child(odd) {
+        border-left: solid;
+    }
+</style>
+
+
+@if (@Session["nameCourse"] != null)
+{
+    <h2><b>Khóa học: @Session["nameCourse"]</b></h2>
+    <hr />
+}
+
+@if (Model != null)
+{
+
+    foreach (var item in Model)
+    {
+        <div class="col-lg-6 subject">
+            @item.ID. @item.TenMonHoc
+        </div>
+    }
+}
+

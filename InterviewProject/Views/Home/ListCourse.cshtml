@@ -1,0 +1,25 @@
+﻿@model IEnumerable<InterviewProject.Models.KhoaHoc>
+@{
+    ViewBag.Title = "ListCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<div class="container">
+    <div class="col-lg-9">
+        @if (Session["idCourse"] != null)
+        {
+            @Html.Action("DetailCourse", Session["idCourse"])
+        }
+    </div>
+    <div class="col-lg-3">
+        <h2><b>Khóa học</b></h2>
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@Html.ActionLink(item.TenKhoaHoc, null, new { id = item.ID }, Session["idCourse"] = item.ID)</li>
+            }
+        </ul>
+    </div>
+</div>
