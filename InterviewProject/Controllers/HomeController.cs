@@ -15,12 +15,15 @@ namespace InterviewProject.Controllers
         {          
             return View();
         }
+        
+        //Lấy danh sách khóa học
         public ActionResult ListCourse()
         {
             List<KhoaHoc> lstCourse = db.KhoaHocs.ToList();
             return View(lstCourse);
         }
 
+        //Lấy danh sách môn học theo khóa học tương ứng
         public ActionResult DetailCourse(int? id)
         {
             Session["nameCourse"] = null;
